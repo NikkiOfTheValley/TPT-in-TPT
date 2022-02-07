@@ -1,4 +1,4 @@
-parse_parts:
+parse_parts: ; Parse particles
     mov r3, part_arr ; Set up pointer to particle array
     mov r1, 0 ; Loop index
 .loop:
@@ -13,31 +13,34 @@ parse_parts:
     add r3, 3 ; Add 3 to the pointer address so that it points to the next particle
     add r1, 1 ; Add 1 to the loop index
 
-    cmp r1, 0xC0 ; If loop index < 192 (0xC0)
+    cmp r1, 0xC0 ; If loop index < 100 (0xC0)
     jl .loop ; Loop back
 
 .exit:
     jmp r4 ; Else, return from function
 
 
-draw_parts:
+
+draw_part: ; Draw a single particle
+
+
+draw_parts: ; Draw all particles
     pop r4 ; Pop function return address into r4
 
     pop r0
     pop r1
     pop r3
+
+    
     hlt
 
 
 %define part 0, 0, 0 ; VX, VY, TYPE
 part_arr:
-	dw 1, 4, 1, part, part, part, part, part, part, part, part, part, part, part, part, part
-	dw part, part, part, part, part, part, part, part, part, part, part, part, part, part
-	dw part, part, part, part, part, part, part, part, part, part, part, part, part, part
-	dw part, part, part, part, part, part, part, part, part, part, part, part, part, part
-	dw part, part, part, part, part, part, part, part, part, part, part, part, part, part
-	dw part, part, part, part, part, part, part, part, part, part, part, part, part, part
-	dw part, part, part, part, part, part, part, part, part, part, part, part, part, part
-	dw part, part, part, part, part, part, part, part, part, part, part, part, part, part
-	dw part, part, part, part, part, part, part, part, part, part, part, part, part, part
-	dw part, part, part, part, part, part, part, part, part, part, part, part, part, part
+    dw 0, 0, 1, part, part, part, part, part, part, part
+    dw part, part, part, part, part, part, part, part
+    dw part, part, part, part, part, part, part, part
+    dw part, part, part, part, part, part, part, part
+    dw part, part, part, part, part, part, part, part
+    dw part, part, part, part, part, part, part, part
+    dw part, part, part, part, part, part, part, part
