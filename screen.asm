@@ -12,6 +12,7 @@ print: ; r0 is a pointer to a string, r10 is the port
 set_pix: ; Set a pixel at a cursor offset
     ; Save register
     push r0
+    mov r9, 0
 
     send r9, 0x200F ; Set the color of the pixels
 
@@ -29,6 +30,7 @@ unset_pix: ; Clear a pixel at a cursor offset
     ; Save registers
     push r0
     push r1
+    mov r9, 0
 
     send r9, 0x200F ; Set the color of the pixels
 
