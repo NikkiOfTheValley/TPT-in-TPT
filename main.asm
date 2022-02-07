@@ -18,7 +18,7 @@ start: ; Start label
     mov r12, 2 ; Set divider port to 2
 
 
-    set_pix
+    
 
     mov r4, ip ; Save return address in r4
     add r4, 3

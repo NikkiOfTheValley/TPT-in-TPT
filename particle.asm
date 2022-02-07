@@ -31,6 +31,7 @@ draw_parts: ; Draw all particles
     pop r1
     pop r3
 
+    ; TODO: Actually display the particles
     
     hlt
 
