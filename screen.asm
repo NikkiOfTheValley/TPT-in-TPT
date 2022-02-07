@@ -3,7 +3,7 @@ print: ; r0 is a pointer to a string, r10 is the port
 .loop:
     add [r0], 0 ; Make sure the zero flag is set correctly
     jz .exit
-    send r10, [r0]
+    send r9, [r0]
     add r0, 0x1
     jmp .loop
 .exit:
@@ -13,13 +13,13 @@ set_pix: ; Set a pixel at a cursor offset
     ; Save register
     push r0
 
-    send r10, 0x200F ; Set the color of the pixels
+    send r9, 0x200F ; Set the color of the pixels
 
     mov r0, 0x1000
     or r0, r1
-    send r10, r0 ; Set the cursor position
+    send r9, r0 ; Set the cursor position
 
-    send r10, 0x007F ; Set the pixel
+    send r9, 0x007F ; Set the pixel
     
     ; Restore original register value
     pop r0
@@ -30,13 +30,13 @@ unset_pix: ; Clear a pixel at a cursor offset
     push r0
     push r1
 
-    send r10, 0x200F ; Set the color of the pixels
+    send r9, 0x200F ; Set the color of the pixels
 
     mov r0, 0x1000
     or r0, r1
-    send r10, r0 ; Set the cursor position
+    send r9, r0 ; Set the cursor position
 
-    send r10, 0x0020 ; Clear the pixel
+    send r9, 0x0020 ; Clear the pixel
 
 
     ; Restore original register values
